@@ -1,0 +1,3 @@
+PLAYER: scripts/PracticeDummies/player.lua
+GLOBAL: scripts/PracticeDummies/global.lua
+MENU: scripts/PracticeDummies/settingsMenu.lua
