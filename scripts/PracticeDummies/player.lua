@@ -1,16 +1,18 @@
----@diagnostic disable: invisible
+---@diagnostic disable: invisible, param-type-mismatch
 local I = require("openmw.interfaces")
 local self = require("openmw.self")
 local types = require("openmw.types")
 local storage = require("openmw.storage")
 local time = require("openmw_aux.time")
 local core = require("openmw.core")
+local async = require("openmw.async")
 
 local dummies = require("scripts.PracticeDummies.dummies")
 local pq = require("scripts.PracticeDummies.model.priorityQueue")
 local messageFactory = require("scripts.PracticeDummies.utils.messages")
+local settingsCache = require("scripts.PracticeDummies.utils.settingsCache")
 
-local settings = storage.playerSection("SettingsPracticeDummies")
+local settings = settingsCache.new(storage.playerSection("SettingsPracticeDummies"), async)
 local messages = messageFactory(core.l10n("PracticeDummies"))
 local fWeaponDamageMult = core.getGMST("fWeaponDamageMult")
 local strength = self.type.stats.attributes.strength(self)
@@ -55,16 +57,16 @@ local function attackedDummy(weaponType)
     local skill = customSkillUsed
         and I.SkillFramework.getSkillStat(customSkill.id)
         or self.type.stats.skills[vanillaSkillId](self)
-    if skill.base >= settings:get("maxSkill") then
+    if skill.base >= settings.maxSkill then
         messages.show(self, "msg_limitReached")
         return
     end
 
     -- hit cap check
-    local maxHits = settings:get("maxHits")
+    local maxHits = settings.maxHits
     if timestamps:size() >= maxHits and maxHits ~= -1 then
         local now = core.getGameTime()
-        local cooldown = timestamps:peek() + settings:get("cooldown") * time.hour
+        local cooldown = timestamps:peek() + settings.cooldown * time.hour
         if cooldown > now then
             messages.show(self, "msg_maxHits")
             return
@@ -80,10 +82,10 @@ local function attackedDummy(weaponType)
 
     -- skill raise
     local skillUsedOptions = {
-        skillGain = settings:get("skillGain") ~= 0
-            and settings:get("skillGain")
+        skillGain = settings.skillGain ~= 0
+            and settings.skillGain
             or nil,
-        scale = settings:get("scale"),
+        scale = settings.scale,
         useType = customSkillUsed
             and customSkill.useType
             or I.SkillProgression.SKILL_USE_TYPES.Weapon_SuccessfulHit
@@ -93,6 +95,9 @@ local function attackedDummy(weaponType)
     else
         I.SkillProgression.skillUsed(vanillaSkillId, skillUsedOptions)
     end
+
+    -- Time Flies interop
+    core.sendGlobalEvent("TimeFlies_passMinutes", settings.timePassed)
 end
 
 ---@param obj GameObject

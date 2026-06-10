@@ -58,5 +58,13 @@ I.Settings.registerGroup {
             default = 50,
             min = 0,
         },
+        {
+            key = 'timePassed',
+            name = 'timePassed_name',
+            description = "timePassed_desc",
+            renderer = 'number',
+            default = 15,
+            min = 0,
+        },
     }
 }

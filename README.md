@@ -18,6 +18,8 @@ Supports [Tamriel_Data](https://www.nexusmods.com/morrowind/mods/44537) dummy.
 
 Supports [Staves](https://www.nexusmods.com/morrowind/mods/58592) and [Throwing](https://www.nexusmods.com/morrowind/mods/58705) custom skills.
 
+Has interop with [Time Flies](https://www.nexusmods.com/morrowind/mods/58252) - each dummy hit will forward time by 15 minutes.
+
 If you're playing with [Skill Evolution](https://www.nexusmods.com/morrowind/mods/57802), you might want to lower the skill XP gain due to feats system already giving you bonus XP for difficult hits.
 
 ## Requirements

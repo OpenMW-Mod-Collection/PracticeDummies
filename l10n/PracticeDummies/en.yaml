@@ -19,6 +19,8 @@ scale_desc: |
 
   Works only when Skill Gain is set to 0.
 maxSkill_name: Skill Level Limit
+timePassed_name: Time Passed per Hit (minutes)
+timePassed_desc: Requires Time Flies to work.
 
 msg_maxHits_1: You have pushed your body to its limit. Further practice now would yield nothing but exhaustion. Rest, and return when your muscles have recovered.
 msg_maxHits_2: The dummy has taught you all it can for today. Strike it again and you strike only air - no lesson remains in its worn frame.
