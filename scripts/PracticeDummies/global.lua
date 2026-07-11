@@ -3,14 +3,19 @@ local types = require("openmw.types")
 local dummies = require("scripts.PracticeDummies.dummies")
 
 local function rangedHandler(data)
-    if not dummies.isDummy(data.hitObj)
+    if not (dummies.isDummy(data.hitObj) or dummies.isTarget(data.hitObj))
         or not types.Player.objectIsInstance(data.actor)
     then
         return
     end
 
     local weaponType = data.weapon.type.records[data.weapon.recordId].type
-    data.actor:sendEvent("PracticeDummies_rangedAttack", weaponType)
+    data.actor:sendEvent("PracticeDummies_rangedAttack", {
+        weaponType = weaponType,
+        hitObjName = dummies.isDummy(data.hitObj)
+            and "dummy"
+            or "target"
+    })
 end
 
 return {

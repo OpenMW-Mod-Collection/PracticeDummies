@@ -8,19 +8,19 @@ For a limited time per day you can hit dummies to gain weapon XP.
 - Each hit grants you 2x the usual weapon XP for a successful hit
 - Hitting dummies can level up your skills only up to level 50
 
+This also works for shooting targets, but they allow training only Marksman.
+
 Every value is tweakable.
 
 ## Compatibility
 
 Should be compatible with any skill-related mods.
 
-Supports [Tamriel_Data](https://www.nexusmods.com/morrowind/mods/44537) dummy.
+Supports [Tamriel_Data](https://www.nexusmods.com/morrowind/mods/44537) and [OAAB_Data](https://www.nexusmods.com/morrowind/mods/49042) dummies and targets.
 
 Supports [Staves](https://www.nexusmods.com/morrowind/mods/58592) and [Throwing](https://www.nexusmods.com/morrowind/mods/58705) custom skills.
 
 Has interop with [Time Flies](https://www.nexusmods.com/morrowind/mods/58252) - each dummy hit will forward time by 15 minutes.
-
-If you're playing with [Skill Evolution](https://www.nexusmods.com/morrowind/mods/57802), you might want to lower the skill XP gain due to feats system already giving you bonus XP for difficult hits.
 
 ## Requirements
 

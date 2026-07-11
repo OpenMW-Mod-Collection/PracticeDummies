@@ -46,7 +46,7 @@ local rangedWeaponTypes = {
 local timestamps = pq:new()
 
 ---@param weaponType WeaponTYPE|string
-local function attackedDummy(weaponType)
+local function attackedDummy(weaponType, hitObjName)
     local vanillaSkillId = weaponTypeToSkillId[weaponType]
     local customSkill = weaponTypeToCustomSkills[weaponType]
     local customSkillUsed = I.SkillFramework
@@ -58,7 +58,7 @@ local function attackedDummy(weaponType)
         and I.SkillFramework.getSkillStat(customSkill.id)
         or self.type.stats.skills[vanillaSkillId](self)
     if skill.base >= settings.maxSkill then
-        messages.show(self, "msg_limitReached")
+        messages.show(self, "msg_limitReached", { objName = hitObjName })
         return
     end
 
@@ -68,7 +68,7 @@ local function attackedDummy(weaponType)
         local now = core.getGameTime()
         local cooldown = timestamps:peek() + settings.cooldown * time.hour
         if cooldown > now then
-            messages.show(self, "msg_maxHits")
+            messages.show(self, "msg_maxHits", { objName = hitObjName })
             return
         end
 
@@ -88,7 +88,10 @@ local function attackedDummy(weaponType)
         scale = settings.scale,
         useType = customSkillUsed
             and customSkill.useType
-            or I.SkillProgression.SKILL_USE_TYPES.Weapon_SuccessfulHit
+            or I.SkillProgression.SKILL_USE_TYPES.Weapon_SuccessfulHit,
+        -- Damage Based Skill Progression compatibility
+        -- https://www.nexusmods.com/morrowind/mods/59380
+        dbspCustom = true,
     }
     if customSkillUsed then
         I.SkillFramework.skillUsed(customSkill.id, skillUsedOptions)
@@ -129,7 +132,7 @@ local function meleeWeaponHandler(obj, var, res)
         eqWeaponType = "h2h"
     end
 
-    attackedDummy(eqWeaponType)
+    attackedDummy(eqWeaponType, "dummy")
 end
 
 if I.impactEffects then
@@ -155,6 +158,8 @@ return {
         onSave = onSave,
     },
     eventHandlers = {
-        PracticeDummies_rangedAttack = attackedDummy
-    }
+        PracticeDummies_rangedAttack = function(data)
+            attackedDummy(data.weaponType, data.hitObjName)
+        end,
+    },
 }

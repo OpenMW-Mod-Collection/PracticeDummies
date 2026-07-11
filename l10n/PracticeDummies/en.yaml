@@ -23,25 +23,25 @@ timePassed_name: Time Passed per Hit (minutes)
 timePassed_desc: Requires Time Flies to work.
 
 msg_maxHits_1: You have pushed your body to its limit. Further practice now would yield nothing but exhaustion. Rest, and return when your muscles have recovered.
-msg_maxHits_2: The dummy has taught you all it can for today. Strike it again and you strike only air - no lesson remains in its worn frame.
-msg_maxHits_3: Your arms grow heavy and your focus dulls. A warrior who trains past his limit learns only bad habits. Come back tomorrow.
+msg_maxHits_2: The {objName} has taught you all it can for today. Continue now and you gain nothing - no lesson remains to be had from it.
+msg_maxHits_3: Your arms grow heavy and your focus dulls. Training past your limit teaches only bad habits. Come back tomorrow.
 msg_maxHits_4: You have practiced enough for one day. Your body needs time to recover before it can benefit from further training.
-msg_maxHits_5: Further strikes will not improve your skill today. Return tomorrow to continue your training.
-msg_maxHits_6: You have hit the training dummy as many times as is useful for today. Come back when you are rested.
+msg_maxHits_5: Further practice will not improve your skill today. Return tomorrow to continue your training.
+msg_maxHits_6: You have used the {objName} as many times as is useful for today. Come back when you are rested.
 msg_maxHits_7: Your muscles are fatigued. Continuing now would do more harm than good. Rest and train again tomorrow.
 msg_maxHits_8: Today's practice is complete. Skill is built over many days, not in a single session.
 msg_maxHits_9: You have reached today's training limit. No further experience can be gained until tomorrow.
-msg_maxHits_10: This dummy has nothing more to teach you today. Return tomorrow to sharpen your skills further.
+msg_maxHits_10: This {objName} has nothing more to teach you today. Return tomorrow to sharpen your skills further.
 msg_maxHits_11: Your body has absorbed all it can from today's session. Rest now, and you will find yourself sharper tomorrow.
 msg_maxHits_12: Training past this point will only tire you. You have done enough for today.
-msg_maxHits_13: You are done for today. A fresh session tomorrow will serve you far better than another strike now.
-msg_limitReached_1: You have learned all that a training dummy can teach you. Seek out real combat if you wish to improve further.
-msg_limitReached_2: This dummy can no longer challenge you. Your skills have grown beyond what practice equipment can offer.
-msg_limitReached_3: Further practice on this dummy will not improve your abilities. You need real experience now.
-msg_limitReached_4: You have mastered what this dummy has to offer. Only true combat will sharpen your skills from here.
-msg_limitReached_5: The training dummy has served its purpose. It has nothing left to teach you.
-msg_limitReached_6: Your skill has outgrown this equipment. No amount of strikes will improve you further - only experience in the field will.
-msg_limitReached_7: You are too skilled to benefit from hitting a dummy. Find a real opponent.
-msg_limitReached_8: This dummy can no longer help you grow. Take what you have learned and use it against a living foe.
-msg_limitReached_9: You have taken all the experience this dummy can provide. Your growth from here must come from real encounters.
-msg_limitReached_10: The dummy stands, but it has nothing more to give you. Your training here is permanently complete.
+msg_maxHits_13: You are done for today. A fresh session tomorrow will serve you far better than more practice now.
+msg_limitReached_1: You have learned all that a {objName} can teach you. Seek out real combat if you wish to improve further.
+msg_limitReached_2: This {objName} can no longer challenge you. Your skills have grown beyond what practice equipment can offer.
+msg_limitReached_3: Further practice on this {objName} will not improve your abilities. You need real experience now.
+msg_limitReached_4: You have mastered what this {objName} has to offer. Only true combat will sharpen your skills from here.
+msg_limitReached_5: The {objName} has served its purpose. It has nothing left to teach you.
+msg_limitReached_6: Your skill has outgrown this equipment. No amount of practice will improve you further - only experience in the field will.
+msg_limitReached_7: You are too skilled to benefit from using a {objName}. Find a real opponent.
+msg_limitReached_8: This {objName} can no longer help you grow. Take what you have learned and use it against a living foe.
+msg_limitReached_9: You have taken all the experience this {objName} can provide. Your growth from here must come from real encounters.
+msg_limitReached_10: The {objName} stands, but it has nothing more to give you. Your training here is permanently complete.
