@@ -15,6 +15,7 @@ local settingsCache = require("scripts.PracticeDummies.utils.settingsCache")
 local settings = settingsCache.new(storage.playerSection("SettingsPracticeDummies"), async)
 local messages = messageFactory(core.l10n("PracticeDummies"))
 local fWeaponDamageMult = core.getGMST("fWeaponDamageMult")
+local fatigue = self.type.stats.dynamic.fatigue(self)
 local strength = self.type.stats.attributes.strength(self)
 local wType = types.Weapon.TYPE
 local weaponTypeToSkillId = {
@@ -132,6 +133,7 @@ local function meleeWeaponHandler(obj, var, res)
         eqWeaponType = "h2h"
     end
 
+    fatigue.current = fatigue.current - settings.fatigueCost
     attackedDummy(eqWeaponType, "dummy")
 end
 

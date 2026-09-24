@@ -66,5 +66,12 @@ I.Settings.registerGroup {
             default = 15,
             min = 0,
         },
+        {
+            key = 'fatigueCost',
+            name = 'fatigueCost_name',
+            renderer = 'number',
+            default = 25,
+            min = 0,
+        },
     }
 }
